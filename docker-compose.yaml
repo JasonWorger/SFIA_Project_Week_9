@@ -1,0 +1,49 @@
+version: '3.7'
+services:
+    service1:
+        image: service1
+        build: ./service1
+        command: gunicorn --bind 0.0.0.0:5000 app:app
+        ports:
+        - target: 5000
+        published: 5000
+        protocol: tcp
+    
+    
+    service2:
+        image: service2
+        build: ./service2
+        command: gunicorn --bind 0.0.0.0:5001 app:app
+        ports:
+        - target: 5001
+        published: 5001
+        protocol: tcp
+    
+     
+        service3:
+        image: service3
+        build: ./service3
+        command: gunicorn --bind 0.0.0.0:5002 app:app
+        ports:
+        - target: 5002
+        published: 5002
+        protocol: tcp
+    
+    
+    
+    service4:
+        image: service4
+        build: ./service4
+        command: gunicorn --bind 0.0.0.0:5003 app:app
+        ports:
+        - target: 5003
+        published: 5003
+        protocol: tcp
+    mysql:
+        image: mysql:5.7
+        environment: 
+            # Use environment variables in jenkins!!!
+            MYSQL_ROOT_PASSWORD: 'root'
+        ports:
+        - target: 3006
+          published: 3306

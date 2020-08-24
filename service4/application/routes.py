@@ -1,4 +1,4 @@
-from flask import request,Response,jsonify
+from flask import request, Response
 import requests
 from application import app
 import random
@@ -20,7 +20,7 @@ def get_slogan():
         return Response(slogans[random.randrange(3)],mimetype='text/plain')
 
     else:
-        return 'This is not a city expected'        
+        return Response 'This is not a city expected'        
 
 
 

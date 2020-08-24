@@ -1,4 +1,4 @@
-from flask import request,Response
+from flask import request, Response
 import requests
 from application import app
 import random

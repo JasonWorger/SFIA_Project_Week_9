@@ -20,5 +20,6 @@ def generate_team():
     team_data = Team(city=city.text, name=name.text, slogan=slogan.text)
     db.session.add(team_data)
     db.session.commit()
+    teams_record=all_data.query.all()
 
-    return render_template('generate.html', title= 'Team Name', data1=city.text, data2=name.text, data3=slogan.text)
+    return render_template('generate.html', title= 'Team Name', city=city.text, name=name.text, slogan=slogan.text, teams=teams_record)

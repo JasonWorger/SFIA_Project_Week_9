@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<p><h1>All Teams</h1></p>
+{% if team %}
+{% for entry in team %}
+	<div>
+		<h3>{{ team.title }}</h3>
+		<p> 
+		- ID:</b>{{ team.id }}
+		- City:</b>{{ team.city }}
+		- Name:</b>{{ team.name }}
+		- Slogan:</b>{{ team.slogan }}
+		</p>
+	</div>
+{% endfor %}
+{% endif %}
+{% endblock %}

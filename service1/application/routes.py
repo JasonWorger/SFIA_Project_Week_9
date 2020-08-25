@@ -17,8 +17,8 @@ def generate_team():
     name = requests.get('http://service3:5002/get/name')
     slogan = requests.post('http://service4:5003/get/slogan', data=city)
 
-    team_data = Team(city=city.text, name=name.text, slogan=slogan.text)
-    db.session.add(team_data)
+    db_data = Team(city=city.text, name=name.text, slogan=slogan.text)
+    db.session.add(db_data)
     db.session.commit()
     teams_record=all_data.query.all()
 

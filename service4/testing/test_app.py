@@ -24,8 +24,7 @@ class TestResponse(TestBase):
     #             response = self.client.post(url_for('get_slogan'))
     #             self.assertIn(b'Win from Within.', response.data)
 
-    def test_team_slogan(self):
-        with self.client:  
+    def test_team_slogan(self): 
             with patch('requests.get') as i:
                 i.return_value.text = 'London'
                 response = self.client.get(url_for('get_slogan'))

@@ -1,34 +1,44 @@
 version: "3.7"
 services:
-    service1:
-        build: ./service1
-        ports: 
-        - target: 5000
-          published: 5000
-          protocol: tcp
-        environment:
-            DATABASE_URI: ${DATABASE_URI}
-            # DATABASE_URI: ${mysql+pymysql://root:root@34.89.15.57:3306/teamdb}
-            SECRET_KEY: ${fasdfadsfadsfwaefsadv43tw4}
-            # TEST_DATABASE_URI: ${mysql+pymysql://root:root@34.89.15.57:3306/teamdbtest}
-            TEST_SECRET_KEY: ${fasdfadsfadsfwaefsadv43tw4}
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-            MYSQL_DATABASE: teamdb, emaildbtest
-    service2: 
-        build: ./service2
-        ports: 
-        - target: 5001
-          published: 5001
-          protocol: tcp 
-    service3: 
-        build: ./service3
-        ports: 
-        - target: 5002
-          published: 5002
-          protocol: tcp
-    service4: 
-        build: ./service4
-        ports: 
-        - target: 5003
-          published: 5003
-          protocol: tcp
+  service1:
+    build: ./service1
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+    environment:
+      DATABASE_URI: ${DATABASE_URI}
+      # SECRET_KEY: ${SECRET_KEY}
+  service2: 
+    build: ./service2
+    ports: 
+      - target: 5001
+        published: 5001
+        protocol: tcp
+  service3: 
+    build: ./service3
+    ports: 
+      - target: 5002
+        published: 5002
+        protocol: tcp
+  service4: 
+    build: ./service4
+    ports: 
+      - target: 5003
+        published: 5003
+        protocol: tcp
+  database:
+    image: mysql:5.7
+    ports:
+      - target: 3306
+        published: 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: teamdb
+    volumes:
+      - type: volume
+        source: database-volume
+        target: /var/lib/mysql
+
+volumes:
+  database-volume:

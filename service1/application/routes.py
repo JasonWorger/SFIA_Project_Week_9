@@ -5,9 +5,10 @@ import requests
 import random
 
 @app.route('/')
-@app.route('/home')
+@app.route('/home', methods=['GET'])
 def home():
-    return render_template('home.html', title = 'Home')
+    teamData = Team.query.all()
+    return render_template('home.html', title = 'Home', teams=teamData)
 
 
 
@@ -20,6 +21,6 @@ def generate_team():
     db_data = Team(city=city.text, name=name.text, slogan=slogan.text)
     db.session.add(db_data)
     db.session.commit()
-    teams_record=all_data.query.all()
+    teams_record=db_data.query.all()
 
     return render_template('generate.html', title= 'Team Name', city=city.text, name=name.text, slogan=slogan.text, teams=teams_record)

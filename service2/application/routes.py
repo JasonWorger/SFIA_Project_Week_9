@@ -8,5 +8,5 @@ import random
 @app.route('/get/city',methods=['GET'])
 def get_city():
     cities = ['London','Manchester','Leeds']
-    city = cities[random.randrange(3)]
+    city = cities[random.randrange(0,3)]
     return Response(city,mimetype='text/plain')

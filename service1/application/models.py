@@ -7,4 +7,4 @@ class Team(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(30), nullable=False)
     city = db.Column(db.String(30), nullable=False)
-    slogan = db.Column(db.String(100), nullable=False)
+    slogan = db.Column(db.String(5000), nullable=False)

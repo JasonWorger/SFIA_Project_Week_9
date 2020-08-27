@@ -1,0 +1,20 @@
+- name: Init a new swarm with default parameters
+  docker_swarm:
+    state: present
+
+- name: Gathering join token 
+  docker_swarm:
+    state: inspect
+  register: swarm_token
+
+- name: Verifying that swarm nodes are present
+  docker_swarm_token:
+    nodes: yes
+
+- name: Joining worker nodes to manager 
+  add_host:
+    name: "join_token"
+    value: "{{ swarm_token.swarm_facts.JoinTokens.Worker }}"
+  
+
+

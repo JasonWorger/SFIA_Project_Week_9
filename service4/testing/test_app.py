@@ -9,33 +9,48 @@ class TestBase(TestCase):
         return app
 
 class TestResponse(TestBase):
-
-    # def test_team_slogan(self):
-    #     with self.client:
-    #         self.client.get(
-    #             url_for('get_slogan'),
-    #             data = city)    
-    #         with patch('requests.get') as i:
-    #             i.return_value.text = 'London'
-    #             response = self.client.post(url_for('get_slogan'))
-    #             self.assertIn(b'London', response.data)    
-    #         with patch('random.randrange') as r:
-    #             r.return_value = 1
-    #             response = self.client.post(url_for('get_slogan'))
-    #             self.assertIn(b'Win from Within.', response.data)
-
+    
     def test_team_slogan(self): 
-            with patch('requests.get') as i:
+        with patch('requests.get') as i:
                 i.return_value.text = 'London'
-                response = self.client.get(url_for('get_slogan'))
-                self.assertIn(b'London', response.data)    
-            with patch('random.randrange') as r:
-                r.return_value = 1
-                response = self.client.get(
-                url_for('get_slogan'),
-                data = city)
-                self.assertIn(b'Win from Within.', response.data)
-                self.assertIn(b'London', response.data) 
+                with patch('random.randrange') as r:
+                    r.return_value = 1
+                    response = self.client.post(
+                    url_for('get_slogan'),
+                    data = 'London')
+                    self.assertIn(b'Win from Within.', response.data)
+    
+    def test_team_slogan2(self): 
+        with patch('requests.get') as i:
+                i.return_value.text = 'Manchester'
+                with patch('random.randrange') as r:
+                    r.return_value = 2
+                    response = self.client.post(
+                    url_for('get_slogan'),
+                    data = 'Manchester')
+                    self.assertIn(b'Champions play as one.', response.data)
+    
+
+    def test_team_slogan3(self): 
+        with patch('requests.get') as i:
+                i.return_value.text = 'Leeds'
+                with patch('random.randrange') as r:
+                    r.return_value = 1
+                    response = self.client.post(
+                    url_for('get_slogan'),
+                    data = 'Leeds')
+                    self.assertIn(b'Never let good enough BE enough.', response.data)
+    
+    def test_team_slogan4(self): 
+        with patch('requests.get') as i:
+                i.return_value.text = 'Leicester'
+                with patch('random.randrange') as r:
+                    r.return_value = 1
+                    response = self.client.post(
+                    url_for('get_slogan'),
+                    data = 'Leicester')
+                    self.assertIn(b'This is not a city expected', response.data)
+                    
                 
 
 

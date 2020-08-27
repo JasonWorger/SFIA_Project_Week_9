@@ -1,3 +1,18 @@
+- name: Install git
+  apt:
+    name: git
+    state: present
+    update_cache: yes
+
+
+
+- name: Update our website from a GIT repository.
+  git:
+    repo: https://github.com/JasonWorger/SFIA_Project_Week_9.git
+    dest: "{{ install_directory }}"
+
+
+
 - name: Init a new swarm with default parameters
   docker_swarm:
     state: present
@@ -5,16 +20,16 @@
 - name: Gathering join token 
   docker_swarm:
     state: inspect
-  register: swarm_token
+  register: swarm_info
 
 - name: Verifying that swarm nodes are present
-  docker_swarm_token:
+  docker_swarm_info:
     nodes: yes
 
 - name: Joining worker nodes to manager 
   add_host:
     name: "join_token"
-    value: "{{ swarm_token.swarm_facts.JoinTokens.Worker }}"
+    value: "{{ swarm_info.swarm_facts.JoinTokens.Worker }}"
   
 
 

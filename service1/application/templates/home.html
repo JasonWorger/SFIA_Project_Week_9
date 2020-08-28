@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body_content %}
+<p><h1>All Teams</h1></p>
+{% if teams %}
+{% for team in teams %}
+	<div>
+		<h3>{{ team.title }}</h3>
+		<p> 
+		- Team Name:</b> {{ team.city }} {{ team.name }}
+		- Slogan:</b> {{ team.slogan }}
+		</p>
+	</div>
+{% endfor %}
+{% endif %}
+{% endblock %}

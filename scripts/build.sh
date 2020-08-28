@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo chmod 666 /var/run/docker.sock
 
-sudo docker-compose down --rmi all
-sudo docker-compose build
-sudo docker login
-sudo docker-compose push
+docker-compose down --rmi all
+docker-compose build
+docker login
+docker-compose push

@@ -2,8 +2,8 @@ from application import app
 from application import db
 from application.models import Team
 
-db.drop_all()
-db.create_all()
+# db.drop_all()
+# db.create_all()
 
 
 if __name__ == "__main__":

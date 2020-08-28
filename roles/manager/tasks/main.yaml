@@ -1,7 +1,7 @@
 - name: Git pull and update
   git:
     repo: https://github.com/JasonWorger/SFIA_Project_Week_9.git
-    dest: /home/  
+    clone: no
     update: yes 
 
 - name: Init a new swarm with default parameters

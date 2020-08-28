@@ -1,5 +1,5 @@
 #!/bin/bash
-ssh sfia-manager << EOF
+ssh manager << EOF
 cd SFIA-PROJECT_2/
 export SECRET_KEY=${SECRET_KEY} 
 export DATABASE_URI=${DATABASE_URI} 

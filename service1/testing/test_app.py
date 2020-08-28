@@ -34,7 +34,7 @@ class TestBase(TestCase):
             slogan = "we win"
         )
 
-        # save team to database
+        # save a team to database
         db.session.add(testTeam)
         db.session.commit()
         

@@ -1,21 +1,24 @@
 pipeline {
     agent any 
     stages{
-        stage('Install Docker'){
+        stage('Configure'){
             steps{
-                sh './scripts/docker_install.sh'
-            }        
-        }
-        stage('Test services'){
-            steps{
-                sh './scripts/test_services.sh'
+                sh './scripts/configure.sh'
             }
         }
-        stage('Deploy services'){
+        stage('Test'){
             steps{
-                sh './scripts/docker_deploy.sh'
+                sh './scripts/test.sh'
             }
         }
-    }
-                   
+        stage('Build'){
+            steps{
+                sh './scripts/build.sh'
+            }
+        }
+        stage('Deploy'){
+            steps{
+                sh './scripts/deploy.sh'
+            }
+        }                   
 }

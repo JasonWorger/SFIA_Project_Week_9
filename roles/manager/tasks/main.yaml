@@ -1,17 +1,8 @@
-- name: Install git
-  apt:
-    name: git
-    state: present
-    update_cache: yes
-
-
-
-- name: Update our website from a GIT repository.
+- name: Git pull and update
   git:
     repo: https://github.com/JasonWorger/SFIA_Project_Week_9.git
-    dest: "{{ install_directory }}"
-
-
+    dest: /home/  
+    update: yes 
 
 - name: Init a new swarm with default parameters
   docker_swarm:

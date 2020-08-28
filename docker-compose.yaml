@@ -11,7 +11,7 @@ services:
         replicas: 2
     environment:
       DATABASE_URI: ${DATABASE_URI}
-      # SECRET_KEY: ${SECRET_KEY}
+      SECRET_KEY: ${SECRET_KEY}
   service2: 
     build: ./service2
     image: jasonworger/service2

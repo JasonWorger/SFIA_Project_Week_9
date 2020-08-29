@@ -8,15 +8,15 @@ import random
 def get_slogan():
     city= request.data.decode('utf-8')
     if city == 'London':
-        slogans = ['The harder you work, the harder it is to lose.','Win from Within.','Play hard, smart and together.']
+        slogans = ['We take what we get.','You dont win them all.','We play okay I guess.']
         return Response(slogans[random.randrange(0,3)],mimetype='text/plain')
 
     elif city == 'Manchester':
-        slogans = ['A winner is a dreamer who never gives up.','Coming together is the beginning. Staying together is progress. Working together is success.','Champions play as one.']
+        slogans = ['Being okay is enough.','Its the taking part that counts, that may mean losing.','Staying up is enough.']
         return Response(slogans[random.randrange(0,3)],mimetype='text/plain')
 
     elif city == 'Leeds':
-        slogans = ['It’s not how you start, but how you finish.','Never let good enough BE enough.','Some wish for it, we work for it.']
+        slogans = ['We cant think of a slogan...','When the going gets tough, give up.','Some work for it, we wish for it.']
         return Response(slogans[random.randrange(0,3)],mimetype='text/plain')
 
     else:

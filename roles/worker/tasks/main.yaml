@@ -10,7 +10,6 @@
     join_token: "{{ hostvars['join_token']['value'] }}"
     remote_addrs: [ "manager:2377" ]
 
-
 - name: Joining worker-2 to swarm
   docker_swarm:
     state: join

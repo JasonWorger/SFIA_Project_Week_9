@@ -52,31 +52,32 @@ After a discussion with the client, the approach of the project was adjusted to 
 
 The MoSCoW method was used when deciding the prioritization of certain features within the application and decided what would or wouldn&#39;t be included. The original MoSCoW of the project can be seen below:
 
-![](RackMultipart20200831-4-1fsnclf_html_ae267e0512e4cd91.png)
+![image](https://user-images.githubusercontent.com/66956487/91771182-74036980-ebda-11ea-9683-176b784f6134.png)
+
 
 **Project Tracking**
 
 Trello was the chosen method when planning the project and tracking the progress of tasks set out. This was done to ensure a steady workflow and create an agile work frame where changes could be made through the production of the web app. This was necessary to allow for an agile workflow ensuring smaller tasks were being completed and this allowed for a structured approach when tackling the project. Below is the trello board used for this project:
 
-![](RackMultipart20200831-4-1fsnclf_html_e446472a6b17593e.png)
+![image](https://user-images.githubusercontent.com/66956487/91771247-939a9200-ebda-11ea-9360-0c869a5cb61e.png)
 
 **Database Structure**
 
 Below is an entity diagram showing the 4 services that was used for the project and how they interacted with each other to achieve the object being produced. This was used to visualise how the 4 services would work and to determine where the best location was for the database and how each service should function. This diagram is the updated version to the approach showing service 1 persisting data and displaying the jinja2 templates, service 2 and 3 persisting lists of data that would be chosen by random, and service 4 that would produce the slogan from a list dependent on the data received from service 1 that were gathered from services 2 and 3.
 
-![](RackMultipart20200831-4-1fsnclf_html_15f7a82d0891e79b.jpg)
+![image](https://user-images.githubusercontent.com/66956487/91771289-a4e39e80-ebda-11ea-8ff1-1ad283ec9f62.png)
 
 **Testing**
 
 Testing has become imperative when determining the success of a project. It cannot be reinforced the importance of carrying out relevant and sufficient tests to ensure that the work produced fulfils the needs required when being used and that is has the reliability to be used on multiple occasions to a point where bugs or issues do not interfere with the users experience. The tools used for testing the application was pytest when conducting unit tests. The nature of the project meant that 100% coverage on all 4 services would be expected to ensure they are all functioning and with no issues as this could have a significant knock on effect to the app&#39;s functionality. Below is the coverage reports of all 4 services.
 
-![](RackMultipart20200831-4-1fsnclf_html_f2c4e27860228730.png)
+![image](https://user-images.githubusercontent.com/66956487/91771329-b62cab00-ebda-11ea-9d28-3f33c8b541cb.png)
 
-![](RackMultipart20200831-4-1fsnclf_html_9a43e06d75b849c0.png)
+![image](https://user-images.githubusercontent.com/66956487/91771344-bc228c00-ebda-11ea-8540-3c1f33aa060c.png)
 
-![](RackMultipart20200831-4-1fsnclf_html_ae670ef8fd9be2ae.png)
+![image](https://user-images.githubusercontent.com/66956487/91771355-c04ea980-ebda-11ea-8fbc-f8f72e446828.png)
 
-![](RackMultipart20200831-4-1fsnclf_html_ea590e5b1a14c827.png)
+![image](https://user-images.githubusercontent.com/66956487/91771359-c3e23080-ebda-11ea-92ef-e895be4ef57c.png)
 
 There was no major issues throughout the testing stage. More setup was required for service 1 due to the set up of a test database which is reflected on the greater number of statements tested to achieve the 100% coverage. I would have preferred to have just 1 coverage report for the application as a whole but due to the nature of the command use (pytest --cov application) there was an error due to there being an application folder in each service. Therefore, individual coverage reports have been produced.
 
@@ -84,7 +85,7 @@ There was no major issues throughout the testing stage. More setup was required 
 
 Below is an image showing the Continuous Integration pipeline of the project depicting all the frameworks and tools used to complete the project successfully.
 
-![](RackMultipart20200831-4-1fsnclf_html_f6cc981dc16e66a6.jpg)
+![image](https://user-images.githubusercontent.com/66956487/91771383-d2304c80-ebda-11ea-9b84-ff1379a105c7.png)
 
 The chosen CI server for this project was Jenkins, this was the chosen CI for my previous project and the reason for this is due to its official plugins that can be downloaded by default to support the server. An example of this is to produce testing reports with the use of pytest that can be seen while the build is produced. Further frameworks of the pipeline included Git for the management of code being pushed and allowed for the agile work where branching could be used to complete particular areas of the production, once completed was then pushed to the master branch when fully functioning.
 
@@ -103,6 +104,8 @@ The deploy stage allows for the program to get deployed to a live environment. T
 **Risk Assessment**
 
 The risk assessment produced for the project can be found below. It attempts to cover all risks or threats involved and what would be done to eliminate or reduce the impact of these threats. The risk assessment shown below is latest version that was added to as the project progressed and introduced new risks.
+
+![image](https://user-images.githubusercontent.com/66956487/91771392-d65c6a00-ebda-11ea-8732-6713dad28c47.png)
 
 **Future Improvements &amp; Bugs**
 

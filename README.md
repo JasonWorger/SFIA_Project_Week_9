@@ -52,65 +52,71 @@ After a discussion with the client, the approach of the project was adjusted to 
 
 The MoSCoW method was used when deciding the prioritization of certain features within the application and decided what would or wouldn&#39;t be included. The original MoSCoW of the project can be seen below:
 
-![](RackMultipart20200831-4-1gittwe_html_ae267e0512e4cd91.png)
+![](RackMultipart20200831-4-1fsnclf_html_ae267e0512e4cd91.png)
 
 **Project Tracking**
 
 Trello was the chosen method when planning the project and tracking the progress of tasks set out. This was done to ensure a steady workflow and create an agile work frame where changes could be made through the production of the web app. This was necessary to allow for an agile workflow ensuring smaller tasks were being completed and this allowed for a structured approach when tackling the project. Below is the trello board used for this project:
 
-![](RackMultipart20200831-4-1gittwe_html_e446472a6b17593e.png)
+![](RackMultipart20200831-4-1fsnclf_html_e446472a6b17593e.png)
 
 **Database Structure**
 
 Below is an entity diagram showing the 4 services that was used for the project and how they interacted with each other to achieve the object being produced. This was used to visualise how the 4 services would work and to determine where the best location was for the database and how each service should function. This diagram is the updated version to the approach showing service 1 persisting data and displaying the jinja2 templates, service 2 and 3 persisting lists of data that would be chosen by random, and service 4 that would produce the slogan from a list dependent on the data received from service 1 that were gathered from services 2 and 3.
 
-![](RackMultipart20200831-4-1gittwe_html_15f7a82d0891e79b.jpg)
+![](RackMultipart20200831-4-1fsnclf_html_15f7a82d0891e79b.jpg)
 
 **Testing**
 
 Testing has become imperative when determining the success of a project. It cannot be reinforced the importance of carrying out relevant and sufficient tests to ensure that the work produced fulfils the needs required when being used and that is has the reliability to be used on multiple occasions to a point where bugs or issues do not interfere with the users experience. The tools used for testing the application was pytest when conducting unit tests. The nature of the project meant that 100% coverage on all 4 services would be expected to ensure they are all functioning and with no issues as this could have a significant knock on effect to the app&#39;s functionality. Below is the coverage reports of all 4 services.
 
-![](RackMultipart20200831-4-1gittwe_html_f2c4e27860228730.png)
+![](RackMultipart20200831-4-1fsnclf_html_f2c4e27860228730.png)
 
-![](RackMultipart20200831-4-1gittwe_html_9a43e06d75b849c0.png)
+![](RackMultipart20200831-4-1fsnclf_html_9a43e06d75b849c0.png)
 
-![](RackMultipart20200831-4-1gittwe_html_ae670ef8fd9be2ae.png)
+![](RackMultipart20200831-4-1fsnclf_html_ae670ef8fd9be2ae.png)
 
-![](RackMultipart20200831-4-1gittwe_html_ea590e5b1a14c827.png)
+![](RackMultipart20200831-4-1fsnclf_html_ea590e5b1a14c827.png)
 
 There was no major issues throughout the testing stage. More setup was required for service 1 due to the set up of a test database which is reflected on the greater number of statements tested to achieve the 100% coverage. I would have preferred to have just 1 coverage report for the application as a whole but due to the nature of the command use (pytest --cov application) there was an error due to there being an application folder in each service. Therefore, individual coverage reports have been produced.
 
-**Continuous Integration pipeline &amp; Deployment**
+**Technologies Used and Continuous Integration Pipeline**
 
-The chosen CI server for this project was Jenkins, this was the chosen CI for my previous project and the reason for this is due to its official plugins that can be downloaded by default to support the server. An example of this is to produce testing reports with the use of pytest that can be seen while the build is produced. Further frameworks of the pipeline included Git for the management of code being pushed and allowed for the agile work where branching could be used to complete particular areas of the production, once completed was then pushed to the master branch when fully functioning. Docker was used to produce a swarm that allowed for the manager and 2 worker nodes to join and carry out load balancing. Docker hub was also used to allow for the storage of container images that would be used later to deploy the program. Ansible was chosen to produce the configuration of the program and the deployment. The automation tool allowed for the use of scripts to carry out the set up that ensures the ease of later deployment with no further configuration needed. Nginx was used as the web server to carry out both the role load balancing and serving static content.
+Below is an image showing the Continuous Integration pipeline of the project depicting all the frameworks and tools used to complete the project successfully.
 
-To deploy the program the process of integrating automation was utilised wherever feasible and most convenient for later deployment. This was done with the use of a Jenkins pipeline build that would run off a Jenkinsfile. The reasons as to why this method has been chosen is it allows for smoother releases if changes were to be made and means that no further configuration is needed once the initial setup has been completed and successfully deploys the program to a live environment. The stages used for this pipeline was: Configuration, Test, Build, and Deploy.
+![](RackMultipart20200831-4-1fsnclf_html_f6cc981dc16e66a6.jpg)
 
-The configure stage allowed for all the packages and dependencies required such as ansible to be installed on the required VM&#39;s for the deployment of the program. This also involved Ansible running the playbook.yaml configured that means roles for the docker swarm, manager node and worker nodes was carried out to initialise the swarm and set up of a git and docker repository.
+The chosen CI server for this project was Jenkins, this was the chosen CI for my previous project and the reason for this is due to its official plugins that can be downloaded by default to support the server. An example of this is to produce testing reports with the use of pytest that can be seen while the build is produced. Further frameworks of the pipeline included Git for the management of code being pushed and allowed for the agile work where branching could be used to complete particular areas of the production, once completed was then pushed to the master branch when fully functioning.
 
-The build stage allowed for production of new docker images to be created and pushed to the desired docker hub repository. However, to ensure zero conflicts with previous images all images are removed before the production of new images. This was done with the use of docker compose to simplify the process
+Docker was used to produce a swarm that allowed for the manager and 2 worker nodes to join and carry out load balancing. Docker hub was also used to allow for the storage of container images that would be used later to deploy the program. Ansible was chosen to produce the configuration of the program and the deployment. The automation tool allowed for the use of **scripts** to carry out the set up that ensures the ease of later deployment with no further configuration needed. **Nginx** was used as the web server to carry out both the role load balancing and serving static content.
 
-The testing stage as previous explained allowed for the program to be reliable and confident that there would be no bugs or issues when deployed to a live environment. This was carried out with the use pf pytest and production coverage reports of each service, all of which have 100% coverage.
+To deploy the program the process of integrating automation was utilised wherever feasible and most convenient for later deployment. This was done with the use of a **Jenkins pipeline** build that would run off a **Jenkinsfile**. The reasons as to why this method has been chosen is it allows for smoother releases if changes were to be made and means that no further configuration is needed once the initial setup has been completed and successfully deploys the program to a live environment. The stages used for this pipeline was: Configuration, Test, Build, and Deploy.
 
-The deploy stage allows for the program to get deployed to a live environment. To accomplish this docker stack was used when in the manager node that allows for the management of a cluster of docker containers with the use of the docker swarm initiated in the configure stage. This docker stack used the images previously pushed to the chosen docker hub repository.
+The configure stage allowed for all the packages and dependencies required such as ansible to be installed on the required VM&#39;s for the deployment of the program. This also involved **Ansible** running the playbook.yaml configured that means roles for the docker swarm, manager node and worker nodes was carried out to initialise the swarm and set up of a git and docker repository.
+
+The build stage allowed for production of new docker images to be created and pushed to the desired **docker hub** repository. However, to ensure zero conflicts with previous images all images are removed before the production of new images. This was done with the use of **docker compose** to simplify the process
+
+The testing stage as previous explained allowed for the program to be reliable and confident that there would be no bugs or issues when deployed to a live environment. This was carried out with the use of **pytest** mock tests and production coverage reports of each service, all of which have 100% coverage.
+
+The deploy stage allows for the program to get deployed to a live environment. To accomplish this docker stack was used when in the manager node that allows for the management of a cluster of docker containers with the use of the **docker swarm** initiated in the configure stage. This docker stack used the images previously pushed to the chosen docker hub repository.
 
 **Risk Assessment**
 
 The risk assessment produced for the project can be found below. It attempts to cover all risks or threats involved and what would be done to eliminate or reduce the impact of these threats. The risk assessment shown below is latest version that was added to as the project progressed and introduced new risks.
 
-**\*\* ADD RISK ASSESSMENT HERE\*\***
-
-**Future Improvements**
+**Future Improvements &amp; Bugs**
 
 The only current known issue with the program is that every time there is an implementation triggering a rebuild, the database is cleared and rebuilt meaning any teams generated before the rebuild after removed.
 
 An account feature could also be setup to allow for a user to have stored team names generated on an individual account only.
 
-The most recent team generated could also potentially be shown on the generate page than having to go to all teams page to see the most recent generated team name.
+The most recent team generated could also potentially be shown on the generate page than having to go to all team&#39;s page to see the most recent generated team name.
+
 
 **Author**
 
 Jason Worger
+
 
 **Acknowledgements**
 

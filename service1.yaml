@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Service
+  labels:
+    app: Service1
+spec:
+  replicas: 2
+  selector:
+    matchlabels:
+      app: service1-app
+  template:
+    metadata:
+      labels:
+      app: service1-app
+  containers:
+ – name: service1
+   image: jasonworger/service1
+   ports:
+ – containerPort: 5000
+   env:
+   - name: DATABASE_URI
+     value: 
+   - name: SECRET_KEY
+     value: 

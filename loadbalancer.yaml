@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Service
+metdata:
+    name: nginx-lb
+spec:
+    selector:
+        environment: production
+    ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+    type: LoadBalancer

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+ name: Service
+ labels:
+   app: Service4
+spec:
+ containers:
+   – name: service4
+     image: jasonworger/service4
+     ports:
+       – containerPort: 5000
